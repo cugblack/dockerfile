@@ -1,0 +1,11 @@
+FROM 192.168.20.4:5000/frontend-base:latest
+
+ADD new-frontend/ /tmp/new-frontend
+
+RUN \ 
+      cp -r /tmp/new-frontend/dist/* /var/www/html/ && \
+      rm -rf /tmp/new-frontend
+
+EXPOSE 80 443
+
+ENTRYPOINT [ "/usr/sbin/nginx", "-g", "daemon off;" ]
