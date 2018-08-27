@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-
+#基础镜像
 MAINTAINER black
 #如无需要，可注释掉下面的两行，https支持
 ADD hello.crt /etc/ssl/certs/hello.crt
