@@ -1,0 +1,14 @@
+FROM 192.168.20.4:5000/nodejs-base:latest
+#FileSystem dockerfile from base nodejs images
+#根据基础镜像，来制作运行的镜像，基础镜像只为节省镜像的构建时间
+
+MAINTAINER black
+
+#此处添加构建好的文件夹到镜像内
+ADD  FileSystem/ /srv/www/FileSystem/
+
+EXPOSE 3000
+
+WORKDIR /srv/www/FileSystem/
+
+CMD ["pm2-runtime", "ecosystem.config.js", "--env", "develop"]
