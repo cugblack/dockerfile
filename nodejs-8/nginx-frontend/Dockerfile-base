@@ -1,0 +1,17 @@
+FROM ubuntu:16.04
+
+MAINTAINER black
+
+ENV TZ=Asia/Shanghai
+
+# 更新软件源
+RUN  \ 
+	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
+    echo $TZ > /etc/timezone && \
+    apt-get update   && \
+    apt-get install -y nginx 
+#可自行添加证书
+ADD https.crt /etc/ssl/certs/https.crt
+ADD https.key /etc/ssl/private/https.key
+#自定义的nginx配置文件，自动跳转https,有需要可自行修改
+ADD  default /etc/nginx/sites-available/default
