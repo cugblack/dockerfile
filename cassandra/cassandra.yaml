@@ -39,6 +39,7 @@ num_tokens: 256
 # vnodes (num_tokens > 1, above) -- in which case you should provide a
 # comma-separated list -- it's primarily used when adding nodes to legacy clusters
 # that do not have vnodes enabled.
+#注释则表示使用 virtual nodes，有节点被删除后会自动均衡数据
 # initial_token:
 
 # See http://wiki.apache.org/cassandra/HintedHandoff
