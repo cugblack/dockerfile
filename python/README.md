@@ -19,6 +19,7 @@
 ## python3:
 
 ### Dockerfile
+
 ```
 FROM python:3
 
@@ -46,9 +47,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 CMD [ "python", "./your-daemon-or-script.py" ]
-`
+```
 
-### 构建镜像：
+
+###  构建镜像
 
       docker build -t my-python-app .
 
