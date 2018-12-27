@@ -1,16 +1,18 @@
-FROM openjdk:8u151-jdk-alpine3.7
-
+FROM alpine:3.8
 MAINTAINER  cugblack@gmail.com
 
-ARG TZ="Asia/Shanghai"
+ADD jdk-8u191-linux-x64.tar.gz /usr/local/
 
-ENV TZ ${TZ}
+RUN echo "http://mirrors.ustc.edu.cn/alpine/v3.8/main" > /etc/apk/repositories  \
+    && echo "http://mirrors.ustc.edu.cn/alpine/v3.8/community" >> /etc/apk/repositories \
+    && apk update \
+    && apk upgrade \
+    && apk add --no-cache ca-certificates wget \
+    && wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://raw.githubusercontent.com/cugblack/dockerfile/master/alpine-jdk8/sgerrand.rsa.pub --no-check-certifica \
+    && wget https://github.com/cugblack/dockerfile/raw/master/alpine-jdk8/glibc-2.28-r0.apk  --no-check-certificate \
+    && apk add glibc-2.28-r0.apk
 
-RUN apk upgrade --update \
-    && apk add bash curl tar wget ca-certificates \
-        tzdata unzip font-adobe-100dpi ttf-dejavu \
-    && ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime \
-    && echo ${TZ} > /etc/timezone \
-    && rm -rf /var/cache/apk/*
+ENV JAVA_HOME=/usr/local/jdk1.8.0_191
+ENV CLASSPATH=$JAVA_HOME/bin
+ENV PATH=.:$JAVA_HOME/bin:$PATH
 
-CMD ["bash"]
