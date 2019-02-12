@@ -8,7 +8,7 @@ docker run -dt --name ss -p 6443:6443 mritd/shadowsocks -s "-s 0.0.0.0 -p 6443 -
       -s : shadowsocks-libev 参数字符串
       -x : 开启 kcptun 支持
       -e : 指定 kcptun 命令，默认为 kcpserver
-      -k : kcptun 参数字符串
+      -k : kcptun 参数字符串,客户端连接密码
 
 
 -----
