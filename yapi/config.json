@@ -13,10 +13,10 @@
     "enable": true,
     "host": "smtp.163.com",
     "port": 465,
-    "from": "18202794429@163.com",
+    "from": "yourmail@163.com",
     "auth": {
-      "user": "18202794429@163.com",
-      "pass": "admin123456"
+      "user": "yourmail@163.com",
+      "pass": "auth_code"
     }
   }
 }
