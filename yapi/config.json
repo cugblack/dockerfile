@@ -1,0 +1,23 @@
+{
+  "port": "3000",
+  "adminAccount": "admin@admin.com",
+  "db": {
+    "servername": "mongo-0.mongo",
+    "DATABASE": "yapi",
+    "port": 27017,
+    "user": "mongo",
+    "pass": "mongo",
+    "authSource": ""
+  },
+  "mail": {
+    "enable": true,
+    "host": "smtp.163.com",
+    "port": 465,
+    "from": "18202794429@163.com",
+    "auth": {
+      "user": "18202794429@163.com",
+      "pass": "admin123456"
+    }
+  }
+}
+
